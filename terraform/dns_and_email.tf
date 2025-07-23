@@ -50,7 +50,11 @@ resource "aws_route53_record" "spf" {
   records = ["v=spf1 include:amazonses.com ~all"]
 }
 
-# Secrets Manager for SMTP credentials
-resource "aws_secretsmanager_secret" "smtp" {
-  name = "gophish/smtp"
+# Route 53 DMARC Record
+resource "aws_route53_record" "dmarc" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "_dmarc.${var.domain_name}"
+  type    = "TXT"
+  ttl     = 600
+  records = ["v=DMARC1; p=none;"]
 }
