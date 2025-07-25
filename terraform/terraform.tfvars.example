@@ -1,1 +1,36 @@
 my_ip = "0.0.0.0/0" # ご自身のIPアドレスをここに設定してください (例: "1.2.3.4/32")
+
+domain_name_to_register = "example.com" # 登録したいドメイン名
+
+# Admin Contact Information
+admin_contact_first_name = "John"
+admin_contact_last_name = "Doe"
+admin_contact_address_line_1 = "123 Example St"
+admin_contact_city = "Anytown"
+admin_contact_state = "AN"
+admin_contact_zip_code = "12345"
+admin_contact_country_code = "US"
+admin_contact_email = "admin@example.com"
+admin_contact_phone_number = "+1.1234567890"
+
+# Registrant Contact Information
+registrant_contact_first_name = "Jane"
+registrant_contact_last_name = "Doe"
+registrant_contact_address_line_1 = "123 Example St"
+registrant_contact_city = "Anytown"
+registrant_contact_state = "AN"
+registrant_contact_zip_code = "12345"
+registrant_contact_country_code = "US"
+registrant_contact_email = "registrant@example.com"
+registrant_contact_phone_number = "+1.1234567890"
+
+# Tech Contact Information
+tech_contact_first_name = "Tech"
+tech_contact_last_name = "Support"
+tech_contact_address_line_1 = "123 Example St"
+tech_contact_city = "Anytown"
+tech_contact_state = "AN"
+tech_contact_zip_code = "12345"
+tech_contact_country_code = "US"
+tech_contact_email = "tech@example.com"
+tech_contact_phone_number = "+1.1234567890"

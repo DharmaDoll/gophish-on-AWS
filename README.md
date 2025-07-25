@@ -89,7 +89,6 @@ Terraformによって以下のAWSリソースがプロビジョニングされ�
     *   **Security Groups:**
         *   **Gophish Admin SG:** 特定のIPアドレスからのHTTPS (3333/tcp) アクセスを許可。
         *   **Gophish Phish SG:** 全てのIPアドレスからのHTTP (80/tcp) および HTTPS (443/tcp) アクセスを許可。
-    *   **Secrets Manager Secret:** SESのSMTP認証情報（ユーザー名、パスワード）を安全に保管。
 
 #### 4. セキュリティとロギング
 

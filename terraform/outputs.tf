@@ -6,12 +6,12 @@ output "ec2_public_ip" {
 
 output "gophish_admin_url" {
   description = "The URL for the Gophish admin interface."
-  value       = "https://gophish.${var.domain_name}:3333"
+  value       = "https://gophish.${aws_route53domains_registered_domain.main.domain_name}:3333"
 }
 
 output "gophish_phish_url" {
   description = "The URL for the Gophish phishing site."
-  value       = "http://phish.${var.domain_name}"
+  value       = "http://phish.${aws_route53domains_registered_domain.main.domain_name}"
 }
 
 output "ses_smtp_endpoint" {
