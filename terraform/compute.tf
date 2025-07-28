@@ -90,12 +90,12 @@ resource "aws_ec2_instance" "main" {
               chmod +x /usr/local/bin/docker-compose
 
               # Create config.json
-              cat <<EOF > /efs/config.json
+              cat <<EOT > /efs/config.json
 ${file("config.json.tpl")}
-EOF
+EOT
 
               # Create docker-compose.yml
-              cat <<EOF > /efs/docker-compose.yml
+              cat <<EOT > /efs/docker-compose.yml
 version: '3.7'
 services:
   gophish:
@@ -108,32 +108,7 @@ services:
       - "443:8443"    # Phishing Site (HTTPS)
     volumes:
       - /efs:/opt/gophish
-EOF
-
-              # Start Gophish
-              sudo docker-compose -f /efs/docker-compose.yml up -d
-              EOF
-
-              # Create config.json
-              cat <<EOF > /efs/config.json
-${file("config.json.tpl")}
-EOF
-
-              # Create docker-compose.yml
-              cat <<EOF > /efs/docker-compose.yml
-version: '3.7'
-services:
-  gophish:
-    image: gophish/gophish:latest
-    container_name: gophish
-    restart: always
-    ports:
-      - "3333:3333"   # Admin UI
-      - "80:8080"     # Phishing Site (HTTP)
-      - "443:8443"    # Phishing Site (HTTPS)
-    volumes:
-      - /efs:/opt/gophish
-EOF
+EOT
 
               # Start Gophish
               sudo docker-compose -f /efs/docker-compose.yml up -d
@@ -163,5 +138,5 @@ data "aws_ami" "amazon_linux" {
 # CloudWatch Log Group for Session Manager logs
 resource "aws_cloudwatch_log_group" "session_logs" {
   name              = "/ssm/session-logs"
-  retention_in_days = 90
+  retention_in_days = 365
 }
