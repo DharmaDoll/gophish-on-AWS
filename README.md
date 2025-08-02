@@ -48,6 +48,9 @@
 *   **DNS管理:** AWS Route 53
 *   **SSL/TLS:** Let's Encrypt (Certbot)
 *   **アクセス管理:** AWS Systems Manager Session Manager
+*   **ストレージ:**
+    *   **EBS (Elastic Block Store):** EC2インスタンスのOSやアプリケーションのバイナリを格納するルートボリュームとして使用し、インスタンスの起動と動作を支えます。
+    *   **EFS (Elastic File System):** Gophishのデータベースや設定ファイル、証明書などのアプリケーションデータを永続化し、EC2インスタンスのライフサイクルとは独立してデータを保護します。
 
 ## 3. セキュリティとロギング
 
@@ -139,24 +142,4 @@ Terraformによる自動化されたデプロイと、その後に続く手動�
     *   **内容:** EC2へのターミナル操作ログをS3とCloudWatchに保存する設定を有効化します。
     *   **作業:** Systems Managerの「セッションマネージャー」設定画面で、S3とCloudWatch Logsへのロギングを有効にし、Terraformで作成したリソース（バケット、ロググループ）を選択します。
 
-## 5. アーキテクチャ図の生成
 
-このプロジェクトのアーキテクチャ図は、Pythonの`Diagrams`ライブラリと`rye`を使ってコードから生成できます。
-
-**前提条件:**
-
-*   Python (ryeで管理)
-*   Graphviz (図のレンダリングに必要)
-
-**手順:**
-
-1.  **依存関係のインストール:**
-    ```bash
-    rye sync
-    ```
-
-2.  **アーキテクチャ図の生成:**
-    ```bash
-    rye run python generate_diagram.py
-    ```
-    プロジェクトルートに `gophish_on_aws_architecture.png` という画像ファイルが生成されます。
